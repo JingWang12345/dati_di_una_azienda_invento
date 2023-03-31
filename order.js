@@ -16,3 +16,5 @@ totalPrice(){
     return total;
 }
 }
+
+

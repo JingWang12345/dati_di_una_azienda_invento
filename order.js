@@ -1,20 +1,22 @@
-class Order{
-constructor(product, quantity, unitprice){
-    this.product = product;
-    this.quantity = quantity;
-    this.unitprice = unitprice;
-}
-toString(){
-    return "PRODUCT:" + this.product + '\n'
-    +"QUANTITY:" + this.quantity + '\n'
-    +"UNITPRICE:" + this.unitprice +'\n'
-    +"TOTALPRICE" + this.totalPrice();
+class Order {
+    constructor(product, unitPrice, quantity) {
+        this.product = product;
+        this.unitPrice = unitPrice;
+        this.quantity = quantity;
+    }
 
-}
-totalPrice(){
-    let total = this.quantity*this.unitprice;
-    return total;
-}
+    totalPrice() {
+        return this.unitPrice * this.quantity;
+    }
+
+    toString() {
+        return "PRODUCT: " + this.product + '\n'
+            + "UNIT PRICE: " + this.unitPrice + '€\n'
+            + "QUANTITY: " + this.quantity + '\n'
+            + "TOTALPRICE: " + this.totalPrice() + '€\n'
+
+    }
+
 }
 
 

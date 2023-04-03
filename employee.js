@@ -5,39 +5,46 @@ class Employees extends Person{
     }
 
     addClient(newClient){
-        this.clients.push(newClient)
+        this.clients.push(newClient);
+    }
+
+    removeClient(exClient){
+        let client = this.clients;
+        for (let i = 0; i < client.length; i++) {
+           if(exClient === clients[i]){
+            this.clients.splice(i,1);
+           };
+            
+        }
     }
 
     totalEarnings(){
-        let total = 0;
-        for (let i = 0; i < this.totalOrderPrice.length; i++) {
-            const order = this.totalOrderPrice[i];
-            total+= order.totalOrderPrice();
+        let clients = this.clients;
+        let sum = 0;
+        for (let i = 0; i < clients.length; i++) {
+            sum+= clients[i].totalOrderPrice();
         }
-        return total;
+        return sum;
     
     }
 
     bestClient(){
         const clients = this.clients;
-        let bestClient = clients[0];
-        for (let i = 1; i < this.clients.length; i++) {
-            const actualClientt = clients[i];
-            const bestTotal = bestClient.order.totalOrderPrice();
-            const actualTotal = actualClient.order.totalOrderPrice();
-            if (actualTotal > bestTotal) {
-                bestClient = actualClient;
+        let best = clients[0];
+        for (let i = 1; i < clients.length; i++) {
+            if (best.totalOrderPrice() < clients[i].totalOrderPrice()) {
+                best = clients[i];
             }
         }
-        return bestClient;
+        return best;
     }
 
     toString(){
         return super.toString() + '\n'
         +'CLIENT COUNT: ' + this.clients.length + '\n'
-        + 'TOTAL EARNINGS: ' + this.totalEarnings() + '\n'
+        + 'TOTAL EARNINGS: ' + this.totalEarnings() + '€\n'
         + 'CLIENTS: ' + this.clients + '\n'
-        + 'MIGLIOR CLIENT: ' + this.bestClient();
+        + 'MIGLIOR CLIENT: ' + this.bestClient().toString();
 
     }   
     

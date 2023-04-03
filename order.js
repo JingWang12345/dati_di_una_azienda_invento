@@ -10,10 +10,10 @@ class Order {
     }
 
     toString() {
-        return "PRODUCT: " + this.product + '\n'
-            + "UNIT PRICE: " + this.unitPrice + '€\n'
-            + "QUANTITY: " + this.quantity + '\n'
-            + "TOTALPRICE: " + this.totalPrice() + '€\n'
+        return 'PRODUCT: ' + this.product + '\n'
+            + 'UNIT PRICE: ' + this.unitPrice.toFixed(2) + '€\n'
+            + 'QUANTITY: ' + this.quantity + '\n'
+            + 'TOTALPRICE: ' + this.totalPrice().toFixed(2) + '€\n';
 
     }
 
